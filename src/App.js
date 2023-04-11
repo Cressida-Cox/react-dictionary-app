@@ -5,8 +5,13 @@ export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <Dictionary />
-        <footer>Coded by Cressida Cox</footer>
+        <header className="App-header"></header>
+
+        <main>
+          <Dictionary />
+        </main>
+
+        <footer className="App-footer">Coded by Cressida Cox</footer>
       </div>
     </div>
   );
