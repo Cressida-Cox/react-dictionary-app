@@ -7,6 +7,7 @@ import "./Dictionary.css";
 export default function Dictionary() {
   let [keyword, setKeyword] = useState("");
   let [results, setResults] = useState(null);
+  let [loaded, setLoaded] = useState(false);
   let [photos, setPhotos] = useState(null);
 
   function search() {
@@ -29,28 +30,43 @@ export default function Dictionary() {
     setPhotos(response.data.photos);
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
   function handleKeywordChange(event) {
     setKeyword(event.target.value);
   }
 
-  return (
-    <div className="Dictionary">
-      <section>
-        <h1>What word do you want to look up?</h1>
-        <form onSubmit={search}>
-          <input
-            type="search"
-            autofocus={true}
-            placeholder="Search for a word..."
-            onChange={handleKeywordChange}
-          />
-        </form>
-        <div className="hint">
-          Suggested words: exonerate, maundy, obliteration, suavity...
-        </div>
-      </section>
-      <Results results={results} />
-      <Photos photos={photos} />
-    </div>
-  );
+  function load() {
+    setLoaded(true);
+    search();
+  }
+
+  if (loaded) {
+    return (
+      <div className="Dictionary">
+        <section>
+          <h1>What word do you want to look up?</h1>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="search"
+              autofocus={true}
+              placeholder="Search for a word..."
+              onChange={handleKeywordChange}
+            />
+          </form>
+          <div className="hint">
+            Suggested words: exonerate, maundy, obliteration, suavity...
+          </div>
+        </section>
+        <Results results={results} />
+        <Photos photos={photos} />
+      </div>
+    );
+  } else {
+    load();
+    return "Loading...";
+  }
 }
