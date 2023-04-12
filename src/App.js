@@ -14,7 +14,15 @@ export default function App() {
         </main>
 
         <footer className="App-footer">
-          <small>Coded by Cressida Cox</small>
+          <small>
+            <a
+              href="https://github.com/Cressida-Cox/react-dictionary-app.git"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Coded by Cressida Cox
+            </a>
+          </small>
         </footer>
       </div>
     </div>
