@@ -9,14 +9,11 @@ export default function Dictionary() {
   let [results, setResults] = useState(null);
   let [photos, setPhotos] = useState(null);
 
-  function search(event) {
-    event.preventDefault();
-
+  function search() {
     // documentation: https://dictionaryapi.dev/e
     let apiURl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
     axios.get(apiURl).then(handleDictionaryResponse);
 
-    // documentation: https://www.pexels.com/api/documentation/
     let pexelsApiKey =
       "zMLqRI3agZBwuYH0tLGjauZn17oM4ZIstnlvoyx1RyVwnvPKfmRrrWwZ";
     let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
@@ -39,7 +36,7 @@ export default function Dictionary() {
   return (
     <div className="Dictionary">
       <section>
-        <h1>What are you looking for?</h1>
+        <h1>What word do you want to look up?</h1>
         <form onSubmit={search}>
           <input
             type="search"
