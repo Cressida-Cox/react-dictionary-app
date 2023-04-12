@@ -1,0 +1,16 @@
+.Results h2 {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.Results section {
+  padding: 2px 30px 30px 30px;
+}
+
+@media (max-width: 400px) {
+  .Results h2 {
+    font-size: 20px;
+    margin: 5px;
+  }
+}
