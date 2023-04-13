@@ -31,10 +31,12 @@
 
 @media (max-width: 420px) {
   .App .container {
-    margin: 40px;
+    margin: 0px;
+    padding: 28px;
   }
 
   .App-header h1 {
     font-size: 18px;
+    margin: 10px 0;
   }
 }
